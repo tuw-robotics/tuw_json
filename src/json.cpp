@@ -5,7 +5,7 @@
 #include <fstream>
 #include <iostream>
 
-void tuw_json::write(const std::string & filename, const Json::Value & src, const std::string & key)
+void tuw_json::write(const std::string & filename, const std::string & key, const Json::Value & src)
 {
   Json::Value json_data;
   json_data[key] = src;

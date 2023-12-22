@@ -8,6 +8,7 @@ endif()
 # find dependencies
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
+find_package(rclcpp_components REQUIRED)
 find_package(tuw_graph_msgs REQUIRED)
 find_package(tuw_geometry_msgs REQUIRED)
 find_package(jsoncpp REQUIRED)
@@ -24,6 +25,14 @@ ament_target_dependencies(
   "geometry_msgs"
 )
 target_link_libraries(tuw_json jsoncpp_lib)
+
+
+install(TARGETS ${PROJECT_NAME} 
+  EXPORT export_${PROJECT_NAME}
+  ARCHIVE DESTINATION lib
+  LIBRARY DESTINATION lib
+  RUNTIME DESTINATION bin
+)
 
 install(DIRECTORY include/
   DESTINATION include
@@ -70,6 +79,9 @@ ament_export_include_directories(
 )
 ament_export_libraries(
   ${PROJECT_NAME}
+)
+ament_export_targets(
+  export_${PROJECT_NAME}
 )
 
 ament_export_dependencies(jsoncpp)

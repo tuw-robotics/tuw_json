@@ -10,7 +10,7 @@ class Value;
 
 namespace tuw_json
 {
-void write(const std::string & filename, const Json::Value & src, const std::string & key);
+void write(const std::string & filename, const std::string & key, const Json::Value & src);
 Json::Value read(const std::string & filename, const std::string & key);
 
 }  // namespace tuw_json

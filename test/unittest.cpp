@@ -6,7 +6,7 @@
 
 TEST(json, tuw_geometry_msgs)
 {
-  std::string filenname = "/tmp/tuw_geometry_msgs.json";
+  std::string filenname = "/tmp/tuw_json.json";
   tuw_geometry_msgs::Pose pose0(0, 0, 0);
   tuw_geometry_msgs::Pose pose1(1, 0, 0);
   tuw_geometry_msgs::Pose pose2(2, 0, 0);
@@ -23,7 +23,7 @@ TEST(json, tuw_geometry_msgs)
   tuw_graph_msgs::Graph graph0("r0_map", tuw_geometry_msgs::Pose(-1, -2, 0));
   graph0.edges = {edge0, edge1};
   graph0.nodes = {node0, node1, node2};
-  tuw_json::write(filenname, tuw_json::toJson(graph0), "graph");
+  tuw_json::write(filenname, "graph", tuw_json::toJson(graph0));
 
   tuw_graph_msgs::Graph graph1;
   tuw_json::fromJson(tuw_json::read(filenname, "graph"), graph1);
