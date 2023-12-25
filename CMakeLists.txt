@@ -70,6 +70,12 @@ if(BUILD_TESTING)
   ament_add_gtest(unittest test/unittest.cpp)  # Need to link .cpp file under test
   target_include_directories(unittest PUBLIC src/)  # Need to specify directories in order to #include from them in the test
   target_link_libraries(unittest ${PROJECT_NAME})
+  ament_target_dependencies(
+    unittest
+    "tuw_graph_msgs"
+    "tuw_geometry_msgs"
+    "geometry_msgs"
+)
 
 endif()
 

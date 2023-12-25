@@ -11,9 +11,9 @@
 
   <depend>rclcpp</depend>
   <depend>rclcpp_components</depend>
-  <depend>tuw_graph_msgs</depend>
-  <depend>tuw_geometry_msgs</depend>
 
+  <build_depend>tuw_graph_msgs</build_depend>
+  <build_depend>tuw_geometry_msgs</build_depend>
   <build_depend>libjsoncpp</build_depend>
 
   <test_depend>ament_lint_auto</test_depend>
