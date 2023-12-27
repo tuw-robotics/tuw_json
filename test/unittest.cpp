@@ -18,7 +18,7 @@ TEST(json, tuw_geometry_msgs)
   tuw_graph_msgs::Node node2(2, pose5);
   tuw_graph_msgs::Edge edge0(1, true, true, 0.2, 0, 1);
   edge0.path = {pose1, pose2, pose3};
-  edge0.flags.push_back(tuw_graph_msgs::msg::Edge::FLAG_ONCE);
+  edge0.flags.push_back(tuw_graph_msgs::msg::Edge::FLAG_OPEN);
   tuw_graph_msgs::Edge edge1(2, false, false, 0.3, 1, 2);
   tuw_graph_msgs::Graph graph0("r0_map", tuw_geometry_msgs::Pose(-1, -2, 0));
   graph0.edges = {edge0, edge1};
