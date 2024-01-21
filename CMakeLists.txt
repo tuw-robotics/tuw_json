@@ -11,6 +11,7 @@ find_package(rclcpp REQUIRED)
 find_package(rclcpp_components REQUIRED)
 find_package(tuw_graph_msgs REQUIRED)
 find_package(tuw_geometry_msgs REQUIRED)
+find_package(tuw_object_map_msgs REQUIRED)
 find_package(jsoncpp REQUIRED)
 
 add_library(tuw_json src/json.cpp )
@@ -22,6 +23,7 @@ ament_target_dependencies(
   tuw_json
   "tuw_graph_msgs"
   "tuw_geometry_msgs"
+  "tuw_object_map_msgs"
   "geometry_msgs"
 )
 target_link_libraries(tuw_json jsoncpp_lib)
@@ -74,6 +76,7 @@ if(BUILD_TESTING)
     unittest
     "tuw_graph_msgs"
     "tuw_geometry_msgs"
+    "tuw_object_map_msgs"
     "geometry_msgs"
 )
 
