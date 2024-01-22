@@ -21,10 +21,6 @@ target_include_directories(tuw_json PUBLIC
   $<INSTALL_INTERFACE:include>)
 ament_target_dependencies(
   tuw_json
-  "tuw_graph_msgs"
-  "tuw_geometry_msgs"
-  "tuw_object_map_msgs"
-  "geometry_msgs"
 )
 target_link_libraries(tuw_json jsoncpp_lib)
 
