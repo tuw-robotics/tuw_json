@@ -1,6 +1,6 @@
 #include "tuw_json/json.hpp"
 
-#include <jsoncpp/json/json.h>
+#include <json/json.h>
 
 #include <fstream>
 #include <iostream>
@@ -40,6 +40,8 @@ Json::Value tuw_json::read(const std::string & filename, const std::string & key
   if (reader.parse(jsonString, root)) {
     if (root.isMember(key)) {
       des = root[key];
+    } else {
+      des = root;
     }
   } else {
     throw std::runtime_error("Failed to parse json file " + filename);
