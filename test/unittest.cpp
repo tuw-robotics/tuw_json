@@ -1,6 +1,6 @@
 #include <tuw_graph_msgs/graph.hpp>
 #include <tuw_graph_msgs/graph_json.hpp>
-#include <tuw_object_map_msgs/object_map_json.hpp>
+#include <tuw_object_map_msgs/objects_json.hpp>
 #include <tuw_json/json.hpp>
 
 #include "gtest/gtest.h"
@@ -52,8 +52,8 @@ TEST(json, tuw_object_map_msgs)
   obj1.enflation_radius = {0.3, 0.3};
   obj1.bondary_radius = {2.0, 2.0};
 
-  tuw_object_map_msgs::ObjectMap map;
+  tuw_object_map_msgs::Objects map;
   map.header.frame_id = "map";
   map.objects = {obj0, obj1};
-  tuw_json::write(filename, "object_map", tuw_json::toJson(map)); 
+  tuw_json::write(filename, "objects", tuw_json::toJson(map)); 
 }
