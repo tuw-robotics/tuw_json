@@ -12,6 +12,7 @@
   <depend>rclcpp</depend>
   <depend>rclcpp_components</depend>
 
+  <build_depend>tuw_std_msgs</build_depend>
   <build_depend>tuw_graph_msgs</build_depend>
   <build_depend>tuw_geometry_msgs</build_depend>
   <build_depend>tuw_object_map_msgs</build_depend>
