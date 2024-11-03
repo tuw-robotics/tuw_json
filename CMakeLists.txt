@@ -12,6 +12,9 @@ find_package(rclcpp_components REQUIRED)
 find_package(tuw_graph_msgs REQUIRED)
 find_package(tuw_geometry_msgs REQUIRED)
 find_package(tuw_object_map_msgs REQUIRED)
+find_package(tuw_std_msgs REQUIRED)
+find_package(tuw_map_msgs REQUIRED)
+find_package(tuw_msgs REQUIRED)
 find_package(jsoncpp REQUIRED)
 
 add_library(tuw_json src/json.cpp )
@@ -65,7 +68,7 @@ if(BUILD_TESTING)
 
 
   find_package(ament_cmake_gtest REQUIRED)
-  ament_add_gtest(unittest test/unittest.cpp)  # Need to link .cpp file under test
+  ament_add_gtest(unittest test/unittest.cpp test/tuw_map_msgs.cpp)  # Need to link .cpp file under test
   target_include_directories(unittest PUBLIC src/)  # Need to specify directories in order to #include from them in the test
   target_link_libraries(unittest ${PROJECT_NAME})
   ament_target_dependencies(
@@ -73,6 +76,8 @@ if(BUILD_TESTING)
     "tuw_graph_msgs"
     "tuw_geometry_msgs"
     "tuw_object_map_msgs"
+    "tuw_msgs"
+    "tuw_map_msgs"
     "geometry_msgs"
 )
 
