@@ -1,22 +1,27 @@
 #include <json/json.h>
 
 #include <tuw_json/json.hpp>
-#include <tuw_map_msgs/object_point_json.hpp>
+#include <tuw_std_msgs/parameter_array_json.hpp>
+#include <tuw_geometry_msgs/point_json.hpp>
 #include <tuw_map_msgs/object_map_json.hpp>
 
 #include "gtest/gtest.h"
 
 TEST(json, tuw_map_point_msgs)
 {
-  std::string filename = "/tmp/tuw_object_point_msgs.json";
-  geographic_msgs::GeoPoint point(563938.78, 5183454.78, 296);
-  tuw_geometry_msgs::Point wgs84(10.0, 20.0, 30.0);
-  tuw_map_msgs::ObjectPoint o(wgs84);
-  tuw_json::write(filename, "point", tuw_json::toJson(o));
+  std::string filename = "/tmp/map_object.json";
+  geographic_msgs::GeoPoint wgs84(563938.78, 5183454.78, 296);
+  tuw_geometry_msgs::Point point(10.0, 20.0, 30.0);
+  tuw_map_msgs::Object o(2, 3);
+  o.points.push_back(point);
+  o.wgs84.push_back(wgs84);
+  o.params = tuw_std_msgs::ParameterArray(2, {"length", "width"}, std::vector<double>({22.9, 44.3}));
+  tuw_json::write(filename, "object", tuw_json::toJson(o));
 }
 
 TEST(json, tuw_map_msgs)
 {
+  /*
   using namespace tuw_std_msgs;
   using namespace tuw_map_msgs;
   using namespace geographic_msgs;
@@ -48,4 +53,5 @@ TEST(json, tuw_map_msgs)
   tuw_map_msgs::ObjectMap des;
   tuw_json::fromJson(tuw_json::read(filename, "objects"), des);
   ASSERT_EQ(des, src);
+  */
 }

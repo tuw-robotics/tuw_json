@@ -68,7 +68,11 @@ if(BUILD_TESTING)
 
 
   find_package(ament_cmake_gtest REQUIRED)
-  ament_add_gtest(unittest test/unittest.cpp test/tuw_map_msgs.cpp)  # Need to link .cpp file under test
+  ament_add_gtest(unittest 
+    test/unittest.cpp 
+    test/tuw_std_msgs.cpp
+    test/tuw_map_msgs.cpp
+  )
   target_include_directories(unittest PUBLIC src/)  # Need to specify directories in order to #include from them in the test
   target_link_libraries(unittest ${PROJECT_NAME})
   ament_target_dependencies(
