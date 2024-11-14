@@ -1,9 +1,9 @@
 #include <json/json.h>
 
-#include <tuw_json/json.hpp>
-#include <tuw_std_msgs/parameter_array_json.hpp>
 #include <tuw_geometry_msgs/point_json.hpp>
+#include <tuw_json/json.hpp>
 #include <tuw_object_msgs/shape_json.hpp>
+#include <tuw_std_msgs/parameter_array_json.hpp>
 
 #include "gtest/gtest.h"
 
@@ -15,7 +15,8 @@ TEST(json, tuw_shapeshape)
   tuw_object_msgs::Shape shape(2, 3);
   shape.points.push_back(point);
   shape.wgs84.push_back(wgs84);
-  shape.params = tuw_std_msgs::ParameterArray(2, {"length", "width"}, std::vector<double>({22.9, 44.3}));
+  shape.params =
+    tuw_std_msgs::ParameterArray(2, {"length", "width"}, std::vector<double>({22.9, 44.3}));
   tuw_json::write(filename, "shape", tuw_json::toJson(shape));
 }
 

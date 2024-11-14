@@ -19,7 +19,6 @@ TEST(json, parameter)
   ASSERT_EQ(des, src);
   double tolerance = 0.001;
   ASSERT_NEAR(des.get<double>(), value, tolerance);
-
 }
 
 TEST(json, parameter_array)
@@ -33,5 +32,4 @@ TEST(json, parameter_array)
   tuw_std_msgs::ParameterArray des;
   tuw_json::fromJson(tuw_json::read(filename, "parameter_array"), des);
   ASSERT_EQ(des, src);
-
 }

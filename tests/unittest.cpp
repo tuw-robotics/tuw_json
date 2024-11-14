@@ -1,7 +1,7 @@
 #include <tuw_graph_msgs/graph.hpp>
 #include <tuw_graph_msgs/graph_json.hpp>
-#include <tuw_object_map_msgs/objects_json.hpp>
 #include <tuw_json/json.hpp>
+#include <tuw_object_map_msgs/objects_json.hpp>
 
 #include "gtest/gtest.h"
 
@@ -55,5 +55,5 @@ TEST(json, tuw_object_map_msgs)
   tuw_object_map_msgs::Objects map;
   map.header.frame_id = "map";
   map.objects = {obj0, obj1};
-  tuw_json::write(filename, "objects", tuw_json::toJson(map)); 
+  tuw_json::write(filename, "objects", tuw_json::toJson(map));
 }
