@@ -68,7 +68,7 @@ if(BUILD_TESTING)
   ament_add_gtest(unittest 
     tests/unittest.cpp 
     tests/tuw_std_msgs.cpp
-    tests/tuw_map_msgs.cpp
+    tests/tuw_object_msgs.cpp
   )
   target_include_directories(unittest PUBLIC src/)  # Need to specify directories in order to #include from them in the test
   target_link_libraries(unittest ${PROJECT_NAME})

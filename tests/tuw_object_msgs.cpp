@@ -1,22 +1,21 @@
 #include <json/json.h>
 
-#include <tuw_geometry_msgs/point_json.hpp>
-#include <tuw_json/json.hpp>
-#include <tuw_object_msgs/shape_json.hpp>
+#include <tuw_geometry_msgs/pose.hpp>
+#include <tuw_geometry_msgs/pose_json.hpp>
 #include <tuw_std_msgs/parameter_array_json.hpp>
+#include <tuw_object_msgs/shape_json.hpp>
+#include <tuw_json/json.hpp>
 
 #include "gtest/gtest.h"
 
 TEST(json, tuw_shapeshape)
 {
   std::string filename = "/tmp/shape.json";
-  geographic_msgs::GeoPoint wgs84(563938.78, 5183454.78, 296);
-  tuw_geometry_msgs::Point point(10.0, 20.0, 30.0);
+  tuw_geometry_msgs::Pose pose(10.0, 20.0, 30.0);
   tuw_object_msgs::Shape shape(2, 3);
-  shape.points.push_back(point);
-  shape.wgs84.push_back(wgs84);
+  shape.poses.push_back(pose);
   shape.params =
-    tuw_std_msgs::ParameterArray(2, {"length", "width"}, std::vector<double>({22.9, 44.3}));
+    tuw_std_msgs::ParameterArray({"length", "width"}, std::vector<double>({22.9, 44.3}));
   tuw_json::write(filename, "shape", tuw_json::toJson(shape));
 }
 

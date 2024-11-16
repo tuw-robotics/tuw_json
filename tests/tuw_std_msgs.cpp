@@ -26,7 +26,7 @@ TEST(json, parameter_array)
   std::string filename = "/tmp/parameter_array.json";
   std::vector<std::string> names = {"length", "width"};
   std::vector<double> values = {22.9, 44.3};
-  tuw_std_msgs::ParameterArray src(2, names, values);
+  tuw_std_msgs::ParameterArray src(names, values);
   tuw_json::write(filename, "parameter_array", tuw_json::toJson(src));
 
   tuw_std_msgs::ParameterArray des;
